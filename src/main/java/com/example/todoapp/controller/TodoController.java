@@ -5,6 +5,7 @@ import com.example.todoapp.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,5 +25,10 @@ public class TodoController {
         return todos.isPresent()
                 ? ResponseEntity.ok(todos.get())
                 : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("{todoId}")
+    public void getTodoById(@PathVariable int todoId){
+        
     }
 }
